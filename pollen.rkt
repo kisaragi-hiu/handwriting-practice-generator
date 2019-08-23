@@ -33,8 +33,15 @@
       (_ "unset")))
   `(div ([class "word-practice"]
          [style ,(~a (format "writing-mode: ~a;" writing-mode)
-                     (if font (format "font-family: '~a';" font) ""))])
+                     (if font (format "font-family: ~a;" font) ""))])
     (div ([class ,(string-join `("reference" ,grid-or-line))]) ,@sample-text)
     (div ([class ,(string-join `("write-over" ,grid-or-line))]) ,@sample-text)
     (div ([class ,(string-join `("empty" ,grid-or-line))]) ,@sample-text)
     (div ([class "empty"]) ,@sample-text)))
+
+(define (paragraph-practice font . lines)
+  `(@ ,(map (lambda (item)
+              (match item
+                ("break" '(div ((style "break-before: page"))))
+                (_ (word-practice #:font font item))))
+            (remove* '("\n") lines))))
