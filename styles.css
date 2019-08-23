@@ -1,5 +1,5 @@
 body {
-  font-size: 34pt;
+  font-size: 24pt;
 }
 table {
   border-collapse: collapse;
@@ -24,7 +24,7 @@ table {
   color: #00000000;
 }
 div.word-practice {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   border-collapse: collapse;
   border-top: 0.3mm solid red;

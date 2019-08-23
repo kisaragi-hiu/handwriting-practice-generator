@@ -1,6 +1,7 @@
 #lang racket
 
 (require threading
+         racket/match
          txexpr
          pollen/core
          pollen/cache
@@ -12,7 +13,8 @@
          pollen/tag
          pollen/unstable/pygments)
 
-(provide (all-defined-out))
+(provide (all-defined-out)
+         (all-from-out racket/match))
 
 (define to-html ->html)
 
