@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="grid" width="100%" height="50%">
+  <style type="text/css">
+    <![CDATA[
+             line.dotted {
+  stroke-dasharray: 1 3;
+  stroke-width: 0.1mm;
+}
+line {
+  stroke: #ff0000;
+  stroke-width: 1px;
+}
+    ]]>
+  </style>
+  <line x1="50%" y1="0%" x2="50%" y2="100%" class="dotted" />
+  <line x1="100%" y1="0%" x2="100%" y2="100%" />
+  <line x1="0%" y1="50%" x2="100%" y2="50%" class="dotted" />
+</svg>

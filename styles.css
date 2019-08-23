@@ -1,0 +1,32 @@
+body {
+  font-size: 34pt;
+}
+table {
+  border-collapse: collapse;
+}
+.reference,
+.with-grid {
+  background-size: 20% 100%;
+  background-image: url("/grid.svg");
+}
+.with-line {
+  background-size: 100% 100%;
+  background-image: url("/line.svg");
+}
+.write-over {
+  color: #f66;
+}
+.empty {
+  color: #00000000;
+}
+div.word-practice {
+  display: inline-flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  border-top: 0.3mm solid red;
+}
+div.word-practice * {
+  border: 0.3mm solid red;
+  border-top: none;
+  padding: 0 0.3em;
+}
