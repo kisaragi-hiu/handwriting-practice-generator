@@ -16,12 +16,23 @@
 
 (define to-html ->html)
 
-(define (word-practice #:grid? [grid? #t] #:font [font #f]
+(define (word-practice #:grid? [grid? #f] #:font [font #f]
+                       #:vertical [vertical #f]
                        . sample-text)
-  (define grid-or-line (if grid? "with-grid" "with-line"))
-  `(div ([class "word-practice"] ,@(if font `([style ,(format "font-family: '~a';" font)])
-                                       empty))
-        (div ([class ,(string-join `("reference" ,grid-or-line))]) ,@sample-text)
-        (div ([class ,(string-join `("write-over" ,grid-or-line))]) ,@sample-text)
-        (div ([class ,(string-join `("empty" ,grid-or-line))]) ,@sample-text)
-        (div ([class "empty"]) ,@sample-text)))
+  (define grid-or-line
+    (match `(,grid? ,vertical)
+      ((list #t _) "with-grid")
+      ((list _ #f) "with-line")
+      (_ "with-line-vertical")))
+  (define writing-mode
+    (match vertical
+      (#t "vertical-lr")
+      (x #:when (string? x) x)
+      (_ "unset")))
+  `(div ([class "word-practice"]
+         [style ,(~a (format "writing-mode: ~a;" writing-mode)
+                     (if font (format "font-family: '~a';" font) ""))])
+    (div ([class ,(string-join `("reference" ,grid-or-line))]) ,@sample-text)
+    (div ([class ,(string-join `("write-over" ,grid-or-line))]) ,@sample-text)
+    (div ([class ,(string-join `("empty" ,grid-or-line))]) ,@sample-text)
+    (div ([class "empty"]) ,@sample-text)))

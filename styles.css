@@ -13,6 +13,10 @@ table {
   background-size: 100% 100%;
   background-image: url("/line.svg");
 }
+.with-line-vertical {
+  background-size: 100% 100%;
+  background-image: url("/line-vertical.svg");
+}
 .write-over {
   color: #ffa0a0;
 }
