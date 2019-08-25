@@ -5,7 +5,7 @@
     <![CDATA[
              line.dotted {
   stroke-dasharray: 1 3;
-  stroke-width: 0.1mm;
+  stroke-width: 0.2mm;
   stroke: #ff0000;
 }
     ]]>
