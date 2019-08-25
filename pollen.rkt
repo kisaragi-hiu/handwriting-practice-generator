@@ -40,8 +40,8 @@
     (div ([class "empty"]) ,@sample-text)))
 
 (define (paragraph-practice font . lines)
-  `(@ ,(map (lambda (item)
-              (match item
-                ("break" '(div ((style "break-before: page"))))
-                (_ (word-practice #:font font item))))
-            (remove* '("\n") lines))))
+  `(@ ,@(map (lambda (item)
+               (match item
+                 ("break" '(div ((style "break-before: page"))))
+                 (_ (word-practice #:font font item))))
+             (remove* '("\n") lines))))
